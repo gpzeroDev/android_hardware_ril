@@ -17,14 +17,6 @@
 radio_library_libs := rild mock-ril reference-cdma-sms reference-ril
 
 LIBRIL := libril
-ifeq ($(TARGET_PROVIDES_LIBRIL),true)
-    # A 'true' value assumes it is present in the device's dir,
-    # so exclude it here entirely to avoid duplicates
-    LIBRIL := ""
-else ifneq ($(TARGET_PROVIDES_LIBRIL),)
-    # Target provides a full path to its libril
-    LIBRIL := $(TARGET_PROVIDES_LIBRIL)
-endif
 
 radio_library_libs += $(LIBRIL)
 
